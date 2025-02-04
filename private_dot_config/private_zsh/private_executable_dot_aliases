@@ -1,0 +1,7 @@
+# alias mutt='sv alarm ${XDG_CONFIG_HOME}/service/mbsync && mutt'
+# alias mutt='dinitctl signal 14 mbsync && mutt'
+# alias mutt='mbsync -a && notmuch new && mutt'
+alias pacc='doas /usr/bin/xbps-install -Su'
+alias reboot='doas /usr/bin/reboot'
+alias poweroff='doas /usr/bin/poweroff'
+alias feedi='sfeed_update ${XDG_CONFIG_HOME}/sfeed/sfeedrc ; SFEED_URL_FILE="${XDG_DATA_HOME}/sfeed/urls" sfeed_curses ${XDG_DATA_HOME}/sfeed/feeds/*'

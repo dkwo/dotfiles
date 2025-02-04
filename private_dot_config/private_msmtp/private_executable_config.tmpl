@@ -1,0 +1,31 @@
+defaults
+auth		on
+tls		on
+logfile		${XDG_STATE_HOME}/msmtp/log
+tls_starttls	on
+
+account		disroot
+host		disroot.org
+port		587
+auth		on
+from		{{ .emailDis }}
+user		{{ .userDis }}
+passwordeval	passage {{ .emailDis }}
+
+account		rutgers
+host		smtp.office365.com
+port		587
+auth		xoauth2
+from		{{ .emailUni1Short }}
+user		{{ .emailUni1 }}
+passwordeval	pizauth show microsoft
+
+account		gmail
+host		smtp.gmail.com
+port		587
+auth		oauthbearer
+from		{{ .emailGmail }}
+user		{{ .emailGmail }}
+passwordeval	pizauth show google
+
+account default : disroot

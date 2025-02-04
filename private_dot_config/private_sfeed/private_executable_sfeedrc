@@ -1,0 +1,9 @@
+sfeedpath="${XDG_DATA_HOME}/sfeed/feeds"
+
+# fetch(name, url, feedfile)
+	fetch() {
+		# allow for 1 redirect, hide User-Agent, timeout is 15 seconds.
+		curl -L --max-redirs 2 -H "User-Agent:" -f -s -m 15 "$2" 2>/dev/null
+	}
+
+. ${XDG_DATA_HOME}/sfeed/list

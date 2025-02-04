@@ -1,0 +1,13 @@
+  set mbox_type		= Maildir
+  set folder		= ~/Mail/disroot
+  set spoolfile		= +INBOX
+  set record		= +Sent
+  set postponed		= +Drafts
+  set trash		= +Trash
+  set edit_headers	= yes
+  set sendmail		= "/usr/bin/msmtp -a disroot"
+  set use_from		= yes
+  set realname		= {{ .fullName | quote }}
+  set from		= {{ .emailDis }}
+  set envelope_from	= yes
+

@@ -1,0 +1,7 @@
+type = scripted
+env-file = env-var-xdg
+load-options = export-passwd-vars
+command = /bin/sh -c "sleep 1; age -d -i ${HOME}/.passage/identities ${XDG_STATE_HOME}/pizauth.age | pizauth restore"
+stop-command = /bin/sh -c "pizauth dump | age -e -r {{ .agepubkey }} -o ${XDG_STATE_HOME}/pizauth.age"
+log-type = buffer
+depends-on: pizauth-daemon

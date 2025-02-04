@@ -1,0 +1,14 @@
+[Default Applications]
+application/pdf=org.pwmt.zathura.desktop
+image/jpg=fim.desktop
+image/jpeg=fim.desktop
+image/png=fim.desktop
+audio/mpeg=mpv.desktop
+
+[Added Associations]
+video/x-msvideo=mpv.desktop;
+application/postscript=org.pwmt.zathura-ps.desktop;
+image/vnd.djvu+multipage=org.pwmt.zathura-djvu.desktop;
+application/epub+zip=org.pwmt.zathura-ps.desktop;
+application/pdf=sioyek.desktop;
+text/plain=sioyek.desktop;

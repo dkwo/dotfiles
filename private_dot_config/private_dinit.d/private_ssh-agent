@@ -1,0 +1,4 @@
+type = process
+command = /usr/bin/ssh-agent -D -a ${XDG_RUNTIME_DIR}/ssh-agent.socket
+restart = true
+log-type = buffer

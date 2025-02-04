@@ -1,0 +1,49 @@
+# bind index,pager \Cp sidebar-prev
+  bind pager <up> previous-line
+  bind pager <down> next-line
+  bind editor <Tab> complete-query
+
+  set askcc
+#  set editor            = "vis +:silent+?^$"
+  set editor = vis
+  set fast_reply
+  set forward_format    = "Fwd: %s"
+  set forward_quote
+  set header_cache      = ${XDG_CACHE_HOME}/mutt
+unset mark_old
+unset markers
+  set menu_scroll
+  set pager_context     = 5
+  set pager_index_lines = 10
+  set pager_stop
+  set reply_to
+  set reverse_name
+  set query_command	= "abook --datafile ${XDG_DATA_HOME}/abook/addressbook --mutt-query '%s'"
+#  set sidebar_visible	= yes
+  set sort              = reverse-threads
+  set sort_aux          = last-date-received
+#  set sort_thread_groups = reverse-last-date-received 
+  set strict_threads	= yes
+  set status_format     = "-%r- %f%?t? Tag:%t?%?p? Post:%p? -%>-"
+  set timeout           = 3
+  set tmpdir            = /tmp
+#set collapse_unread="yes"
+
+alternative_order text/plain text/enriched text/html
+set mailcap_path   = ${XDG_CONFIG_HOME}/mutt/mailcap
+auto_view text/html
+
+ignore *
+unignore from: to: cc: date: subject:
+hdr_order from: to: cc: date: subject:
+
+source ${XDG_CONFIG_HOME}/mutt/accounts/gmail
+folder-hook disroot/* source ${XDG_CONFIG_HOME}/mutt/accounts/disroot
+folder-hook uppsala/* source ${XDG_CONFIG_HOME}/mutt/accounts/uppsala
+folder-hook gmail/* source ${XDG_CONFIG_HOME}/mutt/accounts/gmail
+folder-hook gmail/* exec collapse-all
+folder-hook rutgers/* source ${XDG_CONFIG_HOME}/mutt/accounts/rutgers
+folder-hook rutgers/* exec collapse-all
+
+macro index <f4> "<change-folder>?<change-dir><kill-line>~/Mail/gmail<enter><exit><change-folder>~/Mail/gmail/Inbox<enter>" "go to gmail inbox"
+macro index <f5> "<change-folder>?<change-dir><kill-line>~/Mail/rutgers<enter><exit><change-folder>~/Mail/rutgers/Inbox<enter>" "go to rutgers inbox"

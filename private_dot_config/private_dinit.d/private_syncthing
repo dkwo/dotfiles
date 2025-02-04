@@ -1,0 +1,4 @@
+type = process
+env-file = env-var-xdg
+command = /usr/bin/syncthing serve --no-browser
+log-type = buffer

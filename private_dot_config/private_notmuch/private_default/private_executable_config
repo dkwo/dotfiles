@@ -1,0 +1,11 @@
+[database]
+path=Mail
+
+[new]
+tags=inbox;unread
+ignore=.uidvalidity;.mbsyncstate
+
+[search]
+
+[maildir]
+synchronize_flags=true

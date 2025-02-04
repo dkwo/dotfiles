@@ -1,0 +1,101 @@
+#!/bin/sh
+no_log='> /dev/null 2>&1'
+mod="Mod1"
+riverctl focus-follows-cursor normal
+riverctl set-cursor-warp on-output-change
+riverctl map normal $mod F spawn "firefox ${no_log}"
+riverctl map normal $mod L spawn 'waylock'
+# riverctl map normal $mod P spawn bemenu-run
+riverctl map normal $mod P spawn 'wmenu-run -f "Terminus 18"'
+#riverctl map normal $mod B spawn 'wtype "$(grep -v '\''^#'\'' ${XDG_DATA_HOME}/bookmarks | wmenu -i -l 30 -f "Terminus 18" | cut -d'\'' '\'' -f1)" -P Return'
+riverctl map normal $mod B spawn 'wtype $(cat ${XDG_DATA_HOME}/bookmarks | wmenu -i -l 30 -f "Terminus 18") -P Return'
+riverctl map normal $mod+Shift Return spawn "foot ${no_log}"
+riverctl map normal $mod Q close
+riverctl map normal $mod+Shift Q exit
+riverctl map normal $mod Period focus-output next
+riverctl map normal $mod Comma focus-output previous
+riverctl map normal $mod+Shift Period send-to-output next
+riverctl map normal $mod+Shift Comma send-to-output previous
+
+riverctl map normal $mod J focus-view next
+riverctl map normal $mod K focus-view previous
+riverctl map normal $mod+Shift J swap next
+riverctl map normal $mod+Shift K swap previous
+riverctl map normal $mod Return zoom
+riverctl map normal $mod+Shift H send-layout-cmd rivertile "main-count +1"
+riverctl map normal $mod+Shift L send-layout-cmd rivertile "main-count -1"
+riverctl map-pointer normal $mod BTN_LEFT move-view
+riverctl map-pointer normal $mod BTN_RIGHT resize-view
+
+for i in $(seq 1 9)
+do
+    tags=$((1 << ($i - 1)))
+
+    # $mod+[1-9] to focus tag [0-8]
+    riverctl map normal $mod $i set-focused-tags $tags
+
+    # $mod+Shift+[1-9] to tag focused view with tag [0-8]
+    riverctl map normal $mod+Shift $i set-view-tags $tags
+
+    # $mod+Ctrl+[1-9] to toggle focus of tag [0-8]
+    riverctl map normal $mod+Control $i toggle-focused-tags $tags
+
+    # $mod+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
+    riverctl map normal $mod+Shift+Control $i toggle-view-tags $tags
+done
+
+riverctl map normal $mod Space toggle-float
+# riverctl map normal $mod F toggle-fullscreen
+
+# $mod+{Up,Right,Down,Left} to change layout orientation
+riverctl map normal $mod Up    send-layout-cmd rivertile "main-location top"
+riverctl map normal $mod Right send-layout-cmd rivertile "main-location right"
+riverctl map normal $mod Down  send-layout-cmd rivertile "main-location bottom"
+riverctl map normal $mod Left  send-layout-cmd rivertile "main-location left"
+
+# Declare a passthrough mode. This mode has only a single mapping to return to
+# normal mode. This makes it useful for testing a nested wayland compositor
+riverctl declare-mode passthrough
+
+# $mod+F11 to enter passthrough mode
+riverctl map normal $mod F11 enter-mode passthrough
+
+# $mod+F11 to return to normal mode
+riverctl map passthrough $mod F11 enter-mode normal
+
+# Various media key mapping examples for both normal and locked mode which do
+# not have a modifier
+for mode in normal locked
+do
+    riverctl map $mode None XF86AudioRaiseVolume  spawn 'amixer -q sset Master 5%+'
+    riverctl map $mode None XF86AudioLowerVolume  spawn 'amixer -q sset Master 5%-'
+    riverctl map $mode None XF86AudioMute         spawn 'amixer -q sset Master toggle'
+done
+
+# Set background and border color
+riverctl background-color 0x002b36
+riverctl border-color-focused 0x93a1a1
+riverctl border-color-unfocused 0x586e75
+
+# Set keyboard repeat rate
+riverctl set-repeat 60 300
+
+# Set and exec into the default layout generator, rivertile.
+# River will send the process group of the init executable SIGTERM on exit.
+riverctl default-layout rivertile
+rivertile -view-padding 0 -outer-padding 0 -main-ratio 0.5 &
+riverctl keyboard-layout -options grp:ctrls_toggle us,it
+#compose:lwin
+
+kanshi &
+# wbg ~/Pictures/bkground/michelangelo-versailles.jpg"
+wlsunset $(head -1 ~/.config/wlsunset.conf) -t 3600 -T 5700 -g 0.8 &
+swayidle timeout 600 "wlopm --off '*'" resume "wlopm --on '*'"
+#FIFO=${XDG_RUNTIME_DIR}/sandbar-0
+#[ -e ${FIFO} ] && rm -f ${FIFO}
+#mkfifo ${FIFO}
+#sandbar -font "Terminus:size=18" < ${FIFO} &
+#someblocks -s ${FIFO} &
+# yambar
+#( while date '+%a %Y-%m-%d %H:%M'; do sleep 5; done ) | creek -fn Terminus:size=20 -hg 26 -nf 0xffffff -nb 0x000000
+# someblocks -p | creek -fn Terminus:size=20 -hg 26 -nf 0xffffff -nb 0x000000
