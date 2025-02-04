@@ -1,5 +1,5 @@
 refresh_at_least = 30m;
-// http_listen = off;
+http_listen = none;
 
 account "microsoft" {
     auth_uri = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
@@ -16,6 +16,7 @@ account "microsoft" {
 account "google" {
     auth_uri = "https://accounts.google.com/o/oauth2/auth";
     token_uri = "https://www.googleapis.com/oauth2/v3/token";
+    redirect_uri = "https://localhost";
     client_id = {{ .clientIdGoogl | quote }};
     client_secret = {{ .clientSecGoogl | quote }};
     scopes = ["https://mail.google.com/"];

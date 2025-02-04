@@ -5,7 +5,7 @@ export XDG_STATE_HOME=${HOME}/.local/state
 
 # non xdg compliant
 # export GNUPGHOME=${XDG_DATA_HOME}/gnupg
-export PASSWORD_STORE_DIR=${XDG_DATA_HOME}/pass
+# export PASSWORD_STORE_DIR=${XDG_DATA_HOME}/pass
 export ASPELL_CONF="per-conf ${XDG_CONFIG_HOME}/aspell/aspell.conf; personal ${XDG_CONFIG_HOME}/aspell/en.pws; repl ${XDG_CONFIG_HOME}/aspell/en.prepl"
 #export TEXMFVAR=${XDG_CACHE_HOME}/texlive/texmf-var
 #export TEXMFHOME=${XDG_DATA_HOME}/texmf

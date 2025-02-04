@@ -1,6 +1,6 @@
 sub-file-paths=Subs
 sub-auto=all
-{{ if eq .chezmoi.hostname "ajax" -}}
+{{ if eq .chezmoi.arch "amd64" -}}
 hwdec=vaapi
 {{- end }}
 script-opts-append=ytdl_hook-ytdl_path=yt-dlp
