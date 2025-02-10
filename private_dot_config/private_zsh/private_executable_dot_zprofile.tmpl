@@ -1,8 +1,8 @@
 #!/bin/sh
 [ $(tty) = "/dev/tty1" ] || return
 
-# t460s
 {{- if eq .chezmoi.arch "amd64" }}
+# t460s
 export INTEL_DEBUG=noccs
 export LIBVA_DRIVER_NAME=iHD
 {{- end }}
@@ -25,8 +25,8 @@ export XDG_CURRENT_DESKTOP=river
 # export QT_QPA_PLATFORM=wayland-egl
 # export GDK_BACKEND=wayland
 
-# apple silicon wlroots bug
 {{- if eq .chezmoi.arch "arm64" }}
+# apple silicon wlroots bug
 export WLR_RENDER_DRM_DEVICE=/dev/dri/renderD128
 {{- end }}
 
