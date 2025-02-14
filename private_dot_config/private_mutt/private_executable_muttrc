@@ -38,12 +38,10 @@ unignore from: to: cc: date: subject:
 hdr_order from: to: cc: date: subject:
 
 source ${XDG_CONFIG_HOME}/mutt/accounts/gmail
+
 folder-hook disroot/* source ${XDG_CONFIG_HOME}/mutt/accounts/disroot
-folder-hook uppsala/* source ${XDG_CONFIG_HOME}/mutt/accounts/uppsala
 folder-hook gmail/* source ${XDG_CONFIG_HOME}/mutt/accounts/gmail
-folder-hook gmail/* exec collapse-all
 folder-hook rutgers/* source ${XDG_CONFIG_HOME}/mutt/accounts/rutgers
-folder-hook rutgers/* exec collapse-all
 
 macro index <f4> "<change-folder>?<change-dir><kill-line>~/Mail/gmail<enter><exit><change-folder>~/Mail/gmail/Inbox<enter>" "go to gmail inbox"
 macro index <f5> "<change-folder>?<change-dir><kill-line>~/Mail/rutgers<enter><exit><change-folder>~/Mail/rutgers/Inbox<enter>" "go to rutgers inbox"
