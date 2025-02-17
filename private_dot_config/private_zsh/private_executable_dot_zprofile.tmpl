@@ -30,5 +30,5 @@ export XDG_CURRENT_DESKTOP=river
 export WLR_RENDER_DRM_DEVICE=/dev/dri/renderD128
 {{- end }}
 
-# timestamp=$(date +%F-%R)
-exec river -no-xwayland -log-level warning > ${XDG_STATE_HOME}/logs/river 2>&1
+timestamp=$(date +%F-%R)
+exec river -no-xwayland -log-level warning > /tmp/river-${timestamp} 2>&1
