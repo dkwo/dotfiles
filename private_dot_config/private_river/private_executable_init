@@ -8,7 +8,7 @@ riverctl map normal $mod L spawn 'waylock'
 # riverctl map normal $mod P spawn bemenu-run
 riverctl map normal $mod P spawn 'wmenu-run -f "Terminus 18"'
 #riverctl map normal $mod B spawn 'wtype "$(grep -v '\''^#'\'' ~/Documents/bookmarks | wmenu -i -l 30 -f "Terminus 18" | cut -d'\'' '\'' -f1)" -P Return'
-riverctl map normal $mod B spawn 'wtype $(cat ${XDG_DATA_HOME}/bookmarks | wmenu -i -l 30 -f "Terminus 18") -P Return'
+riverctl map normal $mod B spawn 'wtype $(cat ~/Documents/bookmarks | wmenu -i -l 30 -f "Terminus 18") -P Return'
 riverctl map normal $mod+Shift Return spawn "foot ${no_log}"
 riverctl map normal $mod Q close
 riverctl map normal $mod+Shift Q exit

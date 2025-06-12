@@ -2,10 +2,9 @@ Managed with chezmoi.
 
 Ugly:
 - dinit env file cannot ref ``$HOME``
+- mkdir ``~/.cache/zsh`` for history (or drop history)
 
 Remarks:
-- mkdir ``~/.cache/zsh`` for history
-- syncthing before chezmoi
 - populate by hand ``~/.config/chezmoi/chezmoi.toml``
 ```
 [edit]
