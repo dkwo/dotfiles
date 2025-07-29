@@ -1,10 +1,4 @@
-Managed with chezmoi.
-
-Ugly:
-- dinit env file cannot ref ``$HOME``
-
-Remarks:
-- populate by hand ``~/.config/chezmoi/chezmoi.toml``
+Managed with chezmoi: ``~/.config/chezmoi/chezmoi.toml``
 ```
 [edit]
     command = "vis"
