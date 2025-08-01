@@ -25,6 +25,9 @@ export XDG_CURRENT_DESKTOP=river
 # export QT_QPA_PLATFORM=wayland-egl
 # export GDK_BACKEND=wayland
 
+# Signal and electron-based
+export ELECTRON_OZONE_PLATFORM_HINT=wayland 
+
 {{- if eq .chezmoi.arch "arm64" }}
 # apple silicon wlroots bug
 export WLR_RENDER_DRM_DEVICE=/dev/dri/renderD128
