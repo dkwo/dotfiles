@@ -1,5 +1,6 @@
 refresh_at_least = 30m;
 http_listen = none;
+token_event_cmd = "pizauth dump | age -e -r {{ .agepubkey }} -o ${XDG_STATE_HOME}/pizauth.age";
 
 account "microsoft" {
     auth_uri = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
