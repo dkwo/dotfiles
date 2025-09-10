@@ -14,6 +14,4 @@ Managed with chezmoi: ``~/.config/chezmoi/chezmoi.toml``
     clientIdGoogl = " "
     clientSecGoogl = " "
     agepubkey = " "
-    homeUS = " "
-    homeEU = " "
 ```
