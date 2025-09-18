@@ -1,0 +1,6 @@
+[general]
+bibfiles = [ "~/Documents/cv/refs/bibliography.bib" ]
+editor = "vis"
+pdf_opener = "sioyek"
+url_opener = "xdg-open"
+file_prefix = "~/Documents/cv/paperi"
