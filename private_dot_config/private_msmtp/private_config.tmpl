@@ -27,4 +27,12 @@ from		{{ .emailGmail }}
 user		{{ .emailGmail }}
 passwordeval	pizauth show google
 
-account default : disroot
+account		runbox
+host		mail.runbox.com
+port		587
+auth		on
+from		{{ .Alias1Runbox }}
+user		{{ .userRunbox }}
+passwordeval	passage runbox-msmtp
+
+account default : runbox
