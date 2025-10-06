@@ -1,6 +1,18 @@
 Create		Both
 Expunge		Both
 
+IMAPStore	runbox-remote
+Host		mail.runbox.com
+User		{{ .userRunbox }}
+PassCmd		"/usr/bin/passage runbox-msmtp"
+TLSType		IMAPS
+
+MaildirStore	runbox-local
+Path		~/Mail/runbox/
+Inbox		~/Mail/runbox/INBOX
+SubFolders	Verbatim
+Flatten		.
+
 IMAPStore	disroot-remote
 Host		disroot.org
 User		{{ .userDis }}
@@ -38,6 +50,12 @@ Path		~/Mail/gmail/
 Inbox		~/Mail/gmail/Inbox
 SubFolders	Verbatim
 Flatten		.
+
+Channel		runbox
+Far		:runbox-remote:
+Near		:runbox-local:
+Patterns	*
+SyncState	*
 
 Channel		disroot
 Far		:disroot-remote:
