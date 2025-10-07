@@ -10,7 +10,7 @@ Managed with chezmoi: ``~/.config/chezmoi/chezmoi.toml``
     emailUni1 = " "
     emailUni1Short = " "
     userRunbox = " "
-    Alias1Runbox = " "
+    alias1Runbox = " "
     userGithub = " "
     clientIdMicro = " "
     clientIdGoogl = " "
