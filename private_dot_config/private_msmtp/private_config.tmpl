@@ -11,6 +11,15 @@ from		{{ .emailDis }}
 user		{{ .userDis }}
 passwordeval	passage {{ .emailDis }}
 
+account		bimsa
+host		smtp.exmail.qq.com
+port		465
+auth		on
+from		{{ .userBimsa }}
+user		{{ .userBimsa }}
+passwordeval	passage bimsa-email
+tls_starttls	off
+
 account		rutgers
 host		smtp.office365.com
 port		587

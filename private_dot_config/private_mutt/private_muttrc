@@ -39,6 +39,7 @@ hdr_order from: to: cc: date: subject:
 
 source ${XDG_CONFIG_HOME}/mutt/accounts/gmail
 
+folder-hook bimsa/* source ${XDG_CONFIG_HOME}/mutt/accounts/bimsa
 folder-hook runbox/* source ${XDG_CONFIG_HOME}/mutt/accounts/runbox
 folder-hook disroot/* source ${XDG_CONFIG_HOME}/mutt/accounts/disroot
 folder-hook gmail/* source ${XDG_CONFIG_HOME}/mutt/accounts/gmail

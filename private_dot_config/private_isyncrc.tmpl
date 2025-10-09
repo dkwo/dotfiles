@@ -13,6 +13,18 @@ Inbox		~/Mail/runbox/INBOX
 SubFolders	Verbatim
 Flatten		.
 
+IMAPStore	bimsa-remote
+Host		imap.exmail.qq.com
+User		{{ .userBimsa }}
+PassCmd		"/usr/bin/passage bimsa-email"
+TLSType		IMAPS
+
+MaildirStore	bimsa-local
+Path		~/Mail/bimsa/
+Inbox		~/Mail/bimsa/INBOX
+SubFolders	Verbatim
+Flatten		.
+
 IMAPStore	disroot-remote
 Host		disroot.org
 User		{{ .userDis }}
@@ -54,6 +66,12 @@ Flatten		.
 Channel		runbox
 Far		:runbox-remote:
 Near		:runbox-local:
+Patterns	*
+SyncState	*
+
+Channel		bimsa
+Far		:bimsa-remote:
+Near		:bimsa-local:
 Patterns	*
 SyncState	*
 

@@ -1,0 +1,12 @@
+  set mbox_type		= Maildir
+  set folder		= ~/Mail/bimsa
+  set spoolfile		= +INBOX
+  set record		= +'Sent Messages'
+  set postponed		= +Drafts
+  set trash		= +'Deleted Messages'
+  set edit_headers	= yes
+  set sendmail		= "/usr/bin/msmtp -a bimsa"
+  set use_from		= yes
+  set realname		= {{ .fullName | quote}}
+  set from		= {{ .userBimsa }}
+  set envelope_from	= yes
