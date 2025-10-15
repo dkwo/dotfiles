@@ -86,6 +86,9 @@ riverctl default-layout rivertile
 rivertile -view-padding 0 -outer-padding 0 -main-ratio 0.5 &
 riverctl keyboard-layout -options grp:ctrls_toggle us,it
 #compose:lwin
+{{- if eq .chezmoi.hostname "minerva" }}
+riverctl input keyboard-1452-641-Apple_SPI_Keyboard tap-button-map left-right-middle
+{{- end }}
 
 kanshi &
 # wbg ~/Pictures/bkground/michelangelo-versailles.jpg"
