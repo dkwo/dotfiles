@@ -12,3 +12,5 @@ image/vnd.djvu+multipage=org.pwmt.zathura-djvu.desktop;
 application/epub+zip=org.pwmt.zathura-ps.desktop;
 application/pdf=sioyek.desktop;
 text/plain=sioyek.desktop;
+x-scheme-handler/sgnl=signal.desktop;
+x-scheme-handler/signalcaptcha=signal.desktop; 
