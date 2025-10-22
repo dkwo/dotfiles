@@ -4,13 +4,11 @@ image/jpg=fim.desktop
 image/jpeg=fim.desktop
 image/png=fim.desktop
 audio/mpeg=mpv.desktop
+x-scheme-handler/sgnl=signal.desktop
+x-scheme-handler/signalcaptcha=signal.desktop
 
 [Added Associations]
 video/x-msvideo=mpv.desktop;
 application/postscript=org.pwmt.zathura-ps.desktop;
 image/vnd.djvu+multipage=org.pwmt.zathura-djvu.desktop;
 application/epub+zip=org.pwmt.zathura-ps.desktop;
-application/pdf=sioyek.desktop;
-text/plain=sioyek.desktop;
-x-scheme-handler/sgnl=signal.desktop;
-x-scheme-handler/signalcaptcha=signal.desktop; 
