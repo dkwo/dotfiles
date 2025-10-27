@@ -1,5 +1,6 @@
 type = process
 env-file = env-var-xdg
-command = /usr/bin/pizauth server -vvvv -d
-stop-command = /usr/bin/pizauth shutdown
+load-options = export-passwd-vars
+command = pizauth server -vvvv -d
+stop-command = pizauth shutdown
 log-type = buffer
