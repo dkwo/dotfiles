@@ -67,9 +67,9 @@ riverctl map passthrough $mod F11 enter-mode normal
 # not have a modifier
 for mode in normal locked
 do
-    riverctl map $mode None XF86AudioRaiseVolume  spawn 'amixer -q sset Master 5%+'
-    riverctl map $mode None XF86AudioLowerVolume  spawn 'amixer -q sset Master 5%-'
-    riverctl map $mode None XF86AudioMute         spawn 'amixer -q sset Master toggle'
+    riverctl map $mode None XF86AudioRaiseVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+'
+    riverctl map $mode None XF86AudioLowerVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-'
+    riverctl map $mode None XF86AudioMute         spawn 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
 done
 
 # Set background and border color
