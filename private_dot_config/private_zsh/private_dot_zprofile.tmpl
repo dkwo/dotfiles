@@ -7,31 +7,10 @@ export INTEL_DEBUG=noccs
 export LIBVA_DRIVER_NAME=iHD
 {{- end }}
 
-# dbus
-# export DISABLE_RTKIT=1
-# export NO_AT_BRIDGE=1
-
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=river
-# export BEMENU_OPTS='--tb "#285577" --hb "#285577" --tf "#eeeeee" --hf "#eeeeee" --nf "#bbbbbb" --fn "Terminus 18"'
 
-# hidpi
-#export GDK_DPI_SCALE=2
-#export QT_SCALE_FACTOR=2
-#export QT_ENABLE_HIGHDPI_SCALING=1
-
-# mathematica
-# export MOZ_ENABLE_WAYLAND=1
-# export QT_QPA_PLATFORM=wayland-egl
-# export GDK_BACKEND=wayland
-
-# Signal and electron-based
 export ELECTRON_OZONE_PLATFORM_HINT=wayland 
-
-{{- if eq .chezmoi.arch "arm64" }}
-# apple silicon wlroots bug
-export WLR_RENDER_DRM_DEVICE=/dev/dri/renderD128
-{{- end }}
 
 timestamp=$(date +%F-%R)
 exec river -no-xwayland -log-level warning > /tmp/river-${timestamp} 2>&1
