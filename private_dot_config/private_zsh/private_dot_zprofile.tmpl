@@ -10,7 +10,12 @@ export LIBVA_DRIVER_NAME=iHD
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=river
 
-export ELECTRON_OZONE_PLATFORM_HINT=wayland 
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+
+{{- if eq .chezmoi.arch "arm64" }}
+# apple silicon wlroots bug
+export WLR_RENDER_DRM_DEVICE=/dev/dri/renderD128
+{{- end }}
 
 timestamp=$(date +%F-%R)
 exec river -no-xwayland -log-level warning > /tmp/river-${timestamp} 2>&1
