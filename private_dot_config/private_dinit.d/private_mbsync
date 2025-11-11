@@ -1,4 +1,4 @@
 type = process
-command = /usr/bin/snooze -H* -M 5/10 /bin/sh -c "mbsync -aq && notmuch new"
+command = /usr/bin/snooze -H* -M/10 /bin/sh -c "mbsync -aq && notmuch new"
 log-type = buffer
 depends-on: pizauth-daemon
