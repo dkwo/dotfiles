@@ -1,13 +1,6 @@
-  set mbox_type		= Maildir
   set folder		= ~/Mail/gmail
   set spoolfile		= +Inbox
   unset record
-#  set record		= +[Gmail].Sent\ Mail
   set postponed		= +[Gmail].Drafts
   set trash		= +[Gmail].Trash
-  set edit_headers	= yes
-  set sendmail		= "/usr/bin/msmtp -a gmail"
-  set use_from		= yes
-  set realname		= {{ .fullName | quote }}
   set from		= {{ .emailGmail }}
-  set envelope_from	= yes

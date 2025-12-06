@@ -1,12 +1,6 @@
-  set mbox_type		= Maildir
   set folder		= ~/Mail/runbox
   set spoolfile		= +INBOX
   set record		= +Sent
   set postponed		= +Drafts
   set trash		= +Trash
-  set edit_headers	= yes
-  set sendmail		= "/usr/bin/msmtp -a runbox"
-  set use_from		= yes
-  set realname		= "{{ .fullName }}"
   set from		= {{ .alias1Runbox }}
-  set envelope_from	= yes

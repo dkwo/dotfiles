@@ -1,13 +1,6 @@
-  set mbox_type		= Maildir
   set folder		= ~/Mail/rutgers
   set spoolfile		= +Inbox
   unset record
-#  set record		= ~/Mail/rutgers/Sent\ Items
   set postponed		= +Drafts
   set trash		= +Trash
-  set edit_headers	= yes
-  set sendmail		= "/usr/bin/msmtp -a rutgers"
-  set use_from		= yes
-  set realname		= {{ .fullName | quote }}
   set from		= {{ .emailUni1Short }}
-  set envelope_from	= yes

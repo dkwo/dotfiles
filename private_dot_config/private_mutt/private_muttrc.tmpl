@@ -37,6 +37,15 @@ ignore *
 unignore from: to: cc: date: subject:
 hdr_order from: to: cc: date: subject:
 
+  set mbox_type		= Maildir
+  set edit_headers	= yes
+  set sendmail		= "/usr/bin/msmtp"
+  set use_from		= yes
+  set realname		= {{ .fullName | quote}}
+  set envelope_from	= yes
+
+mailboxes = ~/Mail/disroot/INBOX ~/Mail/gmail/Inbox ~/Mail/bimsa/INBOX ~/Mail/runbox/INBOX
+
 source ${XDG_CONFIG_HOME}/mutt/accounts/gmail
 
 folder-hook bimsa/* source ${XDG_CONFIG_HOME}/mutt/accounts/bimsa
