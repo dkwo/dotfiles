@@ -1,0 +1,6 @@
+XDG_SESSION_TYPE=wayland
+XDG_CURRENT_DESKTOP=river
+ELECTRON_OZONE_PLATFORM_HINT=wayland
+{{- if eq .chezmoi.arch "arm64" }}
+WLR_RENDER_DRM_DEVICE=/dev/dri/renderD128
+{{- end }}

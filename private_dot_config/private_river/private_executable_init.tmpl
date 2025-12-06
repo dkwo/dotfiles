@@ -3,13 +3,13 @@ no_log='> /dev/null 2>&1'
 mod="Mod1"
 riverctl focus-follows-cursor normal
 riverctl set-cursor-warp on-output-change
-riverctl map normal $mod F spawn "firefox ${no_log}"
+riverctl map normal $mod F spawn "~/bin/firefox ${no_log}"
 riverctl map normal $mod L spawn 'waylock'
 # riverctl map normal $mod P spawn bemenu-run
 riverctl map normal $mod P spawn 'wmenu-run -f "Terminus 18"'
 #riverctl map normal $mod B spawn 'wtype "$(grep -v '\''^#'\'' ~/Documents/bookmarks | wmenu -i -l 30 -f "Terminus 18" | cut -d'\'' '\'' -f1)" -P Return'
 riverctl map normal $mod B spawn 'wtype $(cat ~/Documents/bookmarks | wmenu -i -l 30 -f "Terminus 18") -P Return'
-riverctl map normal $mod+Shift Return spawn "foot ${no_log}"
+riverctl map normal $mod+Shift Return spawn "footclient ${no_log}"
 riverctl map normal $mod Q close
 riverctl map normal $mod+Shift Q exit
 riverctl map normal $mod Period focus-output next
@@ -83,17 +83,18 @@ riverctl set-repeat 60 300
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
-rivertile -view-padding 0 -outer-padding 0 -main-ratio 0.5 &
 riverctl keyboard-layout -options grp:ctrls_toggle us,it
 #compose:lwin
 {{- if eq .chezmoi.hostname "minerva" }}
 riverctl input keyboard-1452-641-Apple_SPI_Keyboard tap-button-map left-right-middle
 {{- end }}
 
-kanshi &
+dinitctl setenv WAYLAND_DISPLAY
+rivertile -view-padding 0 -outer-padding 0 -main-ratio 0.5
+# kanshi &
 # wbg ~/Pictures/bkground/michelangelo-versailles.jpg"
-wlsunset $(head -1 ~/.config/wlsunset.conf) -t 3600 -T 5700 -g 0.8 &
-swayidle timeout 600 "wlopm --off '*'" resume "wlopm --on '*'"
+# wlsunset $(head -1 ~/.config/wlsunset.conf) -t 3600 -T 5700 -g 0.8 &
+# swayidle timeout 600 "wlopm --off '*'" resume "wlopm --on '*'"
 #FIFO=${XDG_RUNTIME_DIR}/sandbar-0
 #[ -e ${FIFO} ] && rm -f ${FIFO}
 #mkfifo ${FIFO}

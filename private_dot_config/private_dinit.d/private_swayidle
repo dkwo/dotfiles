@@ -1,0 +1,5 @@
+type = process
+env-file = env-var-xdg
+command = /usr/bin/swayidle
+depends-on = graphical.target
+log-type = buffer
