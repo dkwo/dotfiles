@@ -1,6 +1,3 @@
-Create		Both
-Expunge		Both
-
 IMAPStore	runbox-remote
 Host		mail.runbox.com
 User		{{ .userRunbox }}
@@ -10,7 +7,6 @@ TLSType		IMAPS
 MaildirStore	runbox-local
 Path		~/Mail/runbox/
 Inbox		~/Mail/runbox/INBOX
-SubFolders	Verbatim
 Flatten		.
 
 IMAPStore	bimsa-remote
@@ -22,7 +18,6 @@ TLSType		IMAPS
 MaildirStore	bimsa-local
 Path		~/Mail/bimsa/
 Inbox		~/Mail/bimsa/INBOX
-SubFolders	Verbatim
 Flatten		.
 
 IMAPStore	disroot-remote
@@ -34,7 +29,6 @@ TLSType		IMAPS
 MaildirStore	disroot-local
 Path		~/Mail/disroot/
 Inbox		~/Mail/disroot/INBOX
-SubFolders	Verbatim
 Flatten		.
 
 IMAPStore	rutgers-remote
@@ -47,7 +41,6 @@ TLSType		IMAPS
 MaildirStore	rutgers-local
 Path		~/Mail/rutgers/
 Inbox		~/Mail/rutgers/Inbox
-SubFolders	Verbatim
 Flatten		.
 
 IMAPStore	gmail-remote
@@ -60,7 +53,6 @@ TLSType		IMAPS
 MaildirStore	gmail-local
 Path		~/Mail/gmail/
 Inbox		~/Mail/gmail/Inbox
-SubFolders	Verbatim
 Flatten		.
 
 Channel		runbox
@@ -68,18 +60,24 @@ Far		:runbox-remote:
 Near		:runbox-local:
 Patterns	*
 SyncState	*
+Create		Both
+Expunge		Both
 
 Channel		bimsa
 Far		:bimsa-remote:
 Near		:bimsa-local:
 Patterns	*
 SyncState	*
+Create		Both
+Expunge		Both
 
 Channel		disroot
 Far		:disroot-remote:
 Near		:disroot-local:
 Patterns	* !Archive !Trash
 SyncState	*
+Create		Both
+Expunge		Both
 
 Channel		rutgers
 Far		:rutgers-remote:
@@ -89,6 +87,8 @@ Patterns	!"Conversation History" !"Deleted Items" !"Deleted Items/Sent"
 Patterns	!"Deleted Items/Trash" !Journal !Notes !Sent !Outbox !Tasks
 Patterns	!"Calendar/United States holidays" !Trash
 SyncState	* 
+Create		Both
+Expunge		Both
 
 Channel		gmail
 Far		:gmail-remote:
@@ -96,3 +96,5 @@ Near		:gmail-local:
 Patterns	* !"[Gmail]/All Mail" !"[Gmail]/Important" !"[Gmail]/Starred"
 Patterns	!"[Gmail]/Bin"
 SyncState	*
+Create		Both
+Expunge		Both
