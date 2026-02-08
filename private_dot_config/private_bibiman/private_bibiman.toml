@@ -1,6 +1,5 @@
 [general]
 bibfiles = [ "~/Documents/paperi/bibliography.bib" ]
 editor = "vis"
-pdf_opener = "sioyek"
 url_opener = "xdg-open"
 file_prefix = "~/Documents/paperi"
