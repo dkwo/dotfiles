@@ -11,6 +11,7 @@ export TEXMFVAR=${XDG_CACHE_HOME}/texlive/texmf-var
 export TEXMFHOME=${XDG_DATA_HOME}/texmf
 export TEXMFCONFIG=${XDG_CONFIG_HOME}/texlive/texmf-config
 export DOT_SAGE=${XDG_CONFIG_HOME}/sage
+export IPYTHONDIR=${XDG_CONFIG_HOME}/ipython
 export W3M_DIR=${XDG_STATE_HOME}/w3m
 
 export SSH_AUTH_SOCK=${XDG_RUNTIME_DIR}/ssh-agent.socket
