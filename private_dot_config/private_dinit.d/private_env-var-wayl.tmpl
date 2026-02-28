@@ -4,3 +4,7 @@ ELECTRON_OZONE_PLATFORM_HINT=wayland
 {{- if eq .chezmoi.arch "arm64" }}
 WLR_RENDER_DRM_DEVICE=/dev/dri/renderD128
 {{- end }}
+{{- if eq .chezmoi.arch "amd64" }}
+INTEL_DEBUG=noccs
+LIBVA_DRIVER_NAME=iHD
+{{- end }}
