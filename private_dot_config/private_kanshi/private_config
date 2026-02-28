@@ -1,17 +1,3 @@
 profile {
-	output eDP-1 disable
-	output "Dell U2723" scale 2
-}
-
-profile {
-	output eDP-1 enable scale 2
-}
-
-profile {
-	output eDP-1 disable
-	output "Dell Inc. DELL U2723QE 6JX6WN3" scale 2
-}
-
-profile {
-	output "Dell Inc. DELL U2723QE 6JX6WN3" scale 2
+	output * scale 2
 }
