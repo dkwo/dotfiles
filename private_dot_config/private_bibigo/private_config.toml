@@ -1,0 +1,12 @@
+# bibigo configuration
+
+pdf_opener = "zathura"
+text_editor = "vis"
+
+[[libraries]]
+bib_file  = "~/Documents/paperi/bibliography.bib"
+base_path = "~/Documents/paperi"
+
+[[libraries]]
+bib_file  = "~/Documents/cv/refs/bibliography.bib"
+base_path = "~/Documents/cv/paperi"
