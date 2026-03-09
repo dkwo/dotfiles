@@ -45,7 +45,8 @@ hdr_order from: to: cc: date: subject:
   set envelope_from	= yes
 
 mailboxes = ~/Mail/disroot/INBOX ~/Mail/gmail/Inbox ~/Mail/bimsa/INBOX ~/Mail/runbox/INBOX ~/Mail/rutgers/Inbox
-
+alternates = {{ .alias1Runbox }} {{ .emailDis }} {{ .emailGmail }} {{ .emailUni1Short }} {{ .userBimsa }}
+unset record
 set spoolfile = ~/Mail/action
 
 folder-hook bimsa/* source ${XDG_CONFIG_HOME}/mutt/accounts/bimsa
