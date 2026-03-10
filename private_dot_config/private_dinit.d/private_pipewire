@@ -1,4 +1,3 @@
 type = process
-env-file = env-var-xdg
 command = /usr/bin/pipewire
 log-type = buffer

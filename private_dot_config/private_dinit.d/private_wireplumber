@@ -1,5 +1,4 @@
 type = process
-env-file = env-var-xdg
 command = /usr/bin/wireplumber
 log-type = buffer
 depends-on = pipewire
