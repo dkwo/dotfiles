@@ -1,4 +1,5 @@
 type = process
+env-file = env-var-xdg
 command = /usr/bin/snooze -H* -M/10 /bin/sh -c "mbsync -aq && notmuch new"
 log-type = buffer
 depends-on: pizauth-daemon
