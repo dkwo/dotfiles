@@ -3,7 +3,7 @@ no_log='> /dev/null 2>&1'
 mod="Mod1"
 riverctl focus-follows-cursor normal
 riverctl set-cursor-warp on-output-change
-riverctl map normal $mod F spawn "~/bin/firefox ${no_log}"
+riverctl map normal $mod F spawn "cd /tmp && island run --profile=firefox -- firefox ${no_log}"
 riverctl map normal $mod L spawn 'waylock'
 # riverctl map normal $mod P spawn bemenu-run
 riverctl map normal $mod P spawn 'wmenu-run -f "Terminus 18"'

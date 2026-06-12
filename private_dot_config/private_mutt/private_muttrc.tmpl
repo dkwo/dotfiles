@@ -39,7 +39,7 @@ hdr_order from: to: cc: date: subject:
 
   set mbox_type		= Maildir
   set edit_headers	= yes
-  set sendmail		= "/usr/bin/msmtp"
+  set sendmail		= "$HOME/bin/msmtp-enqueue.sh"
   set use_from		= yes
   set realname		= {{ .fullName | quote}}
   set envelope_from	= yes
