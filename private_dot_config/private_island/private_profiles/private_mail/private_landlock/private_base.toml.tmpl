@@ -1,0 +1,122 @@
+abi = 6
+
+# Deny all supported access by default.
+[[ruleset]]
+handled_access_fs = ["abi.all"]
+handled_access_net = ["abi.all"]
+scoped = ["abi.all"]
+
+# msmtp and isync
+[[net_port]]
+allowed_access = ["connect_tcp"]
+port = [
+    587,
+    465,
+    993,
+]
+
+# Allow read/execute access to system directories.
+[[path_beneath]]
+allowed_access = ["abi.read_execute"]
+parent = ["/usr/bin",
+    "/usr/lib",
+    "${HOME}/bin",
+]
+
+[[variable]]
+name = "XDG_CONFIG_HOME"
+literal = ["{{ .chezmoi.homeDir }}/.config"]
+
+[[variable]]
+name = "XDG_RUNTIME_DIR"
+literal = ["/run/user/{{ .chezmoi.uid }}"]
+
+[[variable]]
+name = "HOME"
+literal = ["{{ .chezmoi.homeDir }}"]
+
+# User configuration files.
+[[path_beneath]]
+allowed_access = [
+    "read_dir",
+    "read_file",
+    "refer",
+]
+parent = [
+    "${HOME}/.passage",
+    "${XDG_CONFIG_HOME}/isyncrc",
+    "${XDG_CONFIG_HOME}/msmtp/config",
+]
+
+# Allow read/write access to Mail folders.
+[[path_beneath]]
+allowed_access = [
+    "abi.read_write",
+    "make_reg",
+    "remove_file",
+]
+parent = [
+    "${XDG_RUNTIME_DIR}/pizauth",
+    "${HOME}/Mail/disroot",
+    "${HOME}/Mail/gmail",
+    "${HOME}/Mail/bimsa",
+    "${HOME}/Mail/rutgers",
+    "${HOME}/Mail/runbox",
+    "${HOME}/Mail/msmtpqueue",
+]
+
+# msmtp writes to /tmp
+[[path_beneath]]
+allowed_access = [
+    "abi.read_write",
+    "make_reg"
+]
+parent = [
+    "/tmp",
+]
+
+# Safe writable devices.
+[[path_beneath]]
+allowed_access = ["abi.read_write"]
+parent = [
+    "/dev/full",
+    "/dev/null",
+    "/dev/random",
+    "/dev/urandom",
+    "/dev/zero",
+]
+
+# System configuration and introspection files.
+[[path_beneath]]
+allowed_access = [
+    "read_dir",
+    "read_file",
+    "refer",
+]
+parent = [
+    "/usr/share",
+    "/etc/fonts",
+    "/etc/resolv.conf",
+    "/etc/ssl/certs",
+    "/proc/self",
+    "/proc/cpuinfo",
+]
+
+# maybe later: more strict
+
+# /usr/bin/age
+# /usr/bin/passage
+# /usr/bin/cat
+# /usr/bin/echo
+# /usr/bin/bash
+# /usr/bin/tree
+# /usr/bin/tail
+# /usr/bin/sed
+# /usr/bin/head
+# /usr/bin/getopt
+# /usr/bin/env
+# /usr/bin/base64
+# /usr/bin/mbsync
+# /usr/bin/mbsync-get-cert
+# /usr/bin/mdconvert
+# /usr/bin/dash

@@ -1,0 +1,21 @@
+workspace = false
+
+[[env]]
+name = "XDG_CONFIG_HOME"
+literal = "{{ .chezmoi.homeDir }}/.config"
+
+[[env]]
+name = "XDG_CACHE_HOME"
+literal = "{{ .chezmoi.homeDir }}/.cache"
+
+[[env]]
+name = "XDG_RUNTIME_DIR"
+literal = "/run/user/{{ .chezmoi.uid }}"
+
+[[env]]
+name = "WAYLAND_DISPLAY"
+literal = "wayland-1"
+
+[[env]]
+name = "XDG_SESSION_TYPE"
+literal = "wayland" 

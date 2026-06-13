@@ -1,0 +1,85 @@
+abi = 6
+
+# Deny all supported access by default.
+[[ruleset]]
+handled_access_fs = ["abi.all"]
+scoped = ["abi.all"]
+
+# Allow read/execute access to system directories.
+[[path_beneath]]
+allowed_access = ["abi.read_execute"]
+parent = ["/usr/bin/signal-desktop", "/usr/lib"]
+
+# System configuration and introspection files.
+[[path_beneath]]
+allowed_access = [
+    "read_dir",
+    "read_file",
+    "refer",
+]
+parent = [
+    "/usr/share",
+    "/etc/fonts",
+    "/etc/resolv.conf",
+    "/proc/self",
+    "/proc/cpuinfo",
+]
+
+[[variable]]
+name = "XDG_CONFIG_HOME"
+literal = ["{{ .chezmoi.homeDir }}/.config"]
+
+[[variable]]
+name = "XDG_CACHE_HOME"
+literal = ["{{ .chezmoi.homeDir }}/.cache"]
+
+[[variable]]
+name = "XDG_DATA_HOME"
+literal = ["{{ .chezmoi.homeDir }}/.local/share"]
+
+[[variable]]
+name = "XDG_RUNTIME_DIR"
+literal = ["/run/user/{{ .chezmoi.uid }}"]
+
+[[variable]]
+name = "WAYLAND_DISPLAY"
+literal = ["wayland-1"]
+
+# Allow read/write access to a shared directory.
+[[path_beneath]]
+allowed_access = ["abi.read_write"]
+parent = [
+    "/tmp",
+    "/dev",
+    "/proc",
+    "${XDG_RUNTIME_DIR}/${WAYLAND_DISPLAY}",
+    "${XDG_RUNTIME_DIR}/pulse",
+    "${XDG_CACHE_HOME}/mesa_shader_cache",
+    "${XDG_CONFIG_HOME}/Signal",
+]
+
+# Allow read access
+[[path_beneath]]
+allowed_access = [
+    "read_dir",
+    "read_file",
+    "refer",
+]
+parent = [
+    "/sys",
+    "${XDG_CONFIG_HOME}/glib-2.0/settings",
+    "${XDG_CONFIG_HOME}/gtk-3.0",
+    "${XDG_DATA_HOME}/mime",
+    "${XDG_DATA_HOME}/recently-used.xbel",
+]
+
+# Safe writable devices.
+[[path_beneath]]
+allowed_access = ["abi.read_write"]
+parent = [
+    "/dev/full",
+    "/dev/null",
+    "/dev/random",
+    "/dev/urandom",
+    "/dev/zero",
+]

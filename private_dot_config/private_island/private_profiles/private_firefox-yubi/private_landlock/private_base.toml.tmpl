@@ -1,0 +1,67 @@
+abi = 6
+
+# Deny all supported access by default.
+[[ruleset]]
+handled_access_fs = ["abi.all"]
+scoped = ["abi.all"]
+
+# Allow read/execute access to system directories.
+[[path_beneath]]
+allowed_access = ["abi.read_execute"]
+parent = ["/usr/bin/firefox", "/usr/lib"]
+
+[[variable]]
+name = "XDG_CONFIG_HOME"
+literal = ["{{ .chezmoi.homeDir }}/.config"]
+
+[[variable]]
+name = "XDG_CACHE_HOME"
+literal = ["{{ .chezmoi.homeDir }}/.cache"]
+
+[[variable]]
+name = "XDG_RUNTIME_DIR"
+literal = ["/run/user/{{ .chezmoi.uid }}"]
+
+[[variable]]
+name = "WAYLAND_DISPLAY"
+literal = ["wayland-1"]
+
+# Allow read/write access to a shared directory.
+[[path_beneath]]
+allowed_access = ["abi.read_write"]
+parent = [
+    "/tmp",
+    "/proc",
+    "${XDG_RUNTIME_DIR}/${WAYLAND_DISPLAY}",
+    "${XDG_RUNTIME_DIR}/pulse",
+    "${XDG_CACHE_HOME}/mozilla/firefox",
+    "${XDG_CONFIG_HOME}/mozilla/firefox",
+    "${XDG_CONFIG_HOME}/gtk-3.0",
+    "${XDG_CONFIG_HOME}/glib-2.0/settings",
+]
+
+# Safe writable devices.
+[[path_beneath]]
+allowed_access = ["abi.read_write"]
+parent = [
+    "/dev/full",
+    "/dev/null",
+    "/dev/random",
+    "/dev/urandom",
+    "/dev/zero",
+]
+
+# System configuration and introspection files.
+[[path_beneath]]
+allowed_access = [
+    "read_dir",
+    "read_file",
+    "refer",
+]
+parent = [
+    "/usr/share",
+    "/etc/fonts",
+    "/etc/resolv.conf",
+    "/proc/self",
+    "/proc/cpuinfo",
+]

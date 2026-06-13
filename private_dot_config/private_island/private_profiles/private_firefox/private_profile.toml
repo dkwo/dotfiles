@@ -1,0 +1,5 @@
+workspace = false
+
+[[env]]
+name = "MOZ_PLUGIN_PATH"
+literal = "/usr/lib/mozilla/plugins"
