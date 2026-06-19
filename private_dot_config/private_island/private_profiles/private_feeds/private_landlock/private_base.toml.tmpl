@@ -8,8 +8,42 @@ scoped = ["abi.all"]
 # Allow read/execute access to system directories.
 [[path_beneath]]
 allowed_access = ["abi.read_execute"]
-parent = ["/usr/bin",
+parent = [
     "/usr/lib",
+    "/usr/bin/mktemp",
+    "/usr/bin/dash",
+    "/usr/bin/printf",
+    "/usr/bin/readlink",
+    "/usr/bin/echo",
+    "/usr/bin/date",
+    "/usr/bin/rm",
+    "/usr/bin/curl",
+    "/usr/bin/iconv",
+    "/usr/bin/cat",
+    "/usr/bin/tr",
+    "/usr/bin/cp",
+    "/usr/bin/sfeed",
+    "/usr/bin/sfeed_xmlenc",
+    "/usr/bin/sfeed_curses",
+    "/usr/bin/sfeed_html",
+    "/usr/bin/sfeed_mbox",
+    "/usr/bin/sfeed_plain",
+    "/usr/bin/sfeed_web",
+    "/usr/bin/sfeed_atom",
+    "/usr/bin/sfeed_frames",
+    "/usr/bin/sfeed_json",
+    "/usr/bin/sfeed_opml_export",
+    "/usr/bin/sfeed_twtxt",
+    "/usr/bin/sfeed_content",
+    "/usr/bin/sfeed_gopher",
+    "/usr/bin/sfeed_markread",
+    "/usr/bin/sfeed_opml_import",
+    "/usr/bin/sfeed_update",
+    "/usr/bin/sort",
+    "/usr/bin/touch",
+    "/usr/bin/kill",
+    "/usr/bin/xargs",
+    "/usr/bin/mkdir",
 ]
 
 [[variable]]

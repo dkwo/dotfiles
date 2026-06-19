@@ -15,14 +15,6 @@ port = [
     993,
 ]
 
-# Allow read/execute access to system directories.
-[[path_beneath]]
-allowed_access = ["abi.read_execute"]
-parent = ["/usr/bin",
-    "/usr/lib",
-    "${HOME}/bin",
-]
-
 [[variable]]
 name = "XDG_CONFIG_HOME"
 literal = ["{{ .chezmoi.homeDir }}/.config"]
@@ -102,21 +94,39 @@ parent = [
     "/proc/cpuinfo",
 ]
 
-# maybe later: more strict
-
-# /usr/bin/age
-# /usr/bin/passage
-# /usr/bin/cat
-# /usr/bin/echo
-# /usr/bin/bash
-# /usr/bin/tree
-# /usr/bin/tail
-# /usr/bin/sed
-# /usr/bin/head
-# /usr/bin/getopt
-# /usr/bin/env
-# /usr/bin/base64
-# /usr/bin/mbsync
-# /usr/bin/mbsync-get-cert
-# /usr/bin/mdconvert
-# /usr/bin/dash
+# pedantically list
+# Allow read/execute access to system directories.
+[[path_beneath]]
+allowed_access = ["abi.read_execute"]
+parent = [
+    "/usr/lib",
+    "${HOME}/bin",
+    "/usr/bin/pizauth",
+    "/usr/bin/age",
+    "/usr/bin/passage",
+    "/usr/bin/git",
+    "/usr/bin/bash",
+    "/usr/bin/qrencode",
+    "/usr/bin/cat",
+    "/usr/bin/echo",
+    "/usr/bin/rm",
+    "/usr/bin/mv",
+    "/usr/bin/tree",
+    "/usr/bin/tail",
+    "/usr/bin/sed",
+    "/usr/bin/head",
+    "/usr/bin/sleep",
+    "/usr/bin/touch",
+    "/usr/bin/find",
+    "/usr/bin/getopt",
+    "/usr/bin/env",
+    "/usr/bin/base64",
+    "/usr/bin/pkill",
+    "/usr/bin/sleep",
+    "/usr/bin/mktemp",
+    "/usr/bin/mbsync",
+    "/usr/bin/mbsync-get-cert",
+    "/usr/bin/mdconvert",
+    "/usr/bin/msmtp",
+    "/usr/bin/dash",
+]
