@@ -50,7 +50,8 @@ literal = ["wayland-1"]
 allowed_access = ["abi.read_write"]
 parent = [
     "/tmp",
-    "/dev",
+    "/dev/dri",
+    "/dev/shm",
     "/proc",
     "${XDG_RUNTIME_DIR}/${WAYLAND_DISPLAY}",
     "${XDG_RUNTIME_DIR}/pulse",
@@ -66,7 +67,9 @@ allowed_access = [
     "refer",
 ]
 parent = [
-    "/sys",
+    "/sys/bus/pci/devices",
+    "/sys/class/drm",
+    "/sys/devices",
     "${XDG_CONFIG_HOME}/glib-2.0/settings",
     "${XDG_CONFIG_HOME}/gtk-3.0",
     "${XDG_DATA_HOME}/mime",
