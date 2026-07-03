@@ -1,0 +1,6 @@
+type = process
+env-file = env-var-firefox
+working-dir = /tmp
+command = /usr/bin/island run --profile=firefox -- firefox
+log-type = buffer
+restart = false
