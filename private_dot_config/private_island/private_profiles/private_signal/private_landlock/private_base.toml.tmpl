@@ -57,6 +57,16 @@ parent = [
     "${XDG_RUNTIME_DIR}/pulse",
     "${XDG_CACHE_HOME}/mesa_shader_cache",
     "${XDG_CONFIG_HOME}/Signal",
+    "/dev/video0",
+]
+
+# Allow read access
+[[path_beneath]]
+allowed_access = [
+    "read_dir",
+]
+parent = [
+    "/dev",
 ]
 
 # Allow read access
@@ -70,6 +80,7 @@ parent = [
     "/sys/bus/pci/devices",
     "/sys/class/drm",
     "/sys/devices",
+    "/sys/class/video4linux",
     "${XDG_CONFIG_HOME}/glib-2.0/settings",
     "${XDG_CONFIG_HOME}/gtk-3.0",
     "${XDG_DATA_HOME}/mime",
