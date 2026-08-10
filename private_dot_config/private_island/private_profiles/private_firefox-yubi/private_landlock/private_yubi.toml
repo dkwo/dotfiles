@@ -8,7 +8,7 @@ parent = [
     "/dev/hidraw1",
     "/dev/hidraw2",
     "/dev/hidraw3",
-    "/dev/hidraw2",
+    "/dev/hidraw4",
 ]
 
 # and finding it.
