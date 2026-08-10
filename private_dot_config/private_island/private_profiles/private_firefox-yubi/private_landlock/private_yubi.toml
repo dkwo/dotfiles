@@ -1,0 +1,22 @@
+abi = 6
+
+# Yubikey
+[[path_beneath]]
+allowed_access = ["abi.read_write"]
+parent = [
+    "/dev/hidraw0",
+    "/dev/hidraw1",
+    "/dev/hidraw2",
+    "/dev/hidraw3",
+    "/dev/hidraw2",
+]
+
+# and finding it.
+[[path_beneath]]
+allowed_access = [
+    "read_dir",
+    "read_file",
+]
+parent = [
+    "/sys",
+]
