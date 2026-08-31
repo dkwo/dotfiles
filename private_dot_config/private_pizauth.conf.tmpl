@@ -3,21 +3,18 @@ refresh_at_least = 30m;
 http_listen = none;
 token_event_cmd = "pizauth dump | age -e -r {{ .agepubkey }} -o ${XDG_STATE_HOME}/pizauth.age";
 
-account "microsoft" {
-    auth_uri = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
-    token_uri = "https://login.microsoftonline.com/common/oauth2/v2.0/token";
-    redirect_uri = "https://localhost";
-    client_id = {{ .clientIdMicro | quote }};
-    scopes = [
-      "https://outlook.office365.com/IMAP.AccessAsUser.All",
-      "https://outlook.office365.com/SMTP.Send",
-      "offline_access"
-    ];
-}
-
 account "google" {
     auth_uri = "https://accounts.google.com/o/oauth2/auth";
     token_uri = "https://www.googleapis.com/oauth2/v3/token";
+    redirect_uri = "https://localhost";
+    client_id = {{ .clientIdGoogl | quote }};
+    client_secret = {{ .clientSecGoogl | quote }};
+    scopes = ["https://mail.google.com/"];
+}
+
+account "uni1" {
+    auth_uri = "https://accounts.google.com/o/oauth2/auth";
+    token_uri = "https://oauth2.googleapis.com/token";
     redirect_uri = "https://localhost";
     client_id = {{ .clientIdGoogl | quote }};
     client_secret = {{ .clientSecGoogl | quote }};

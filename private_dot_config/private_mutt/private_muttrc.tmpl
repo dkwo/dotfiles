@@ -44,8 +44,8 @@ hdr_order from: to: cc: date: subject:
   set realname		= {{ .fullName | quote}}
   set envelope_from	= yes
 
-mailboxes = ~/Mail/disroot/INBOX ~/Mail/gmail/Inbox ~/Mail/bimsa/INBOX ~/Mail/runbox/INBOX ~/Mail/rutgers/Inbox
-alternates = {{ .alias1Runbox }} {{ .emailDis }} {{ .emailGmail }} {{ .emailUni1Short }} {{ .userBimsa }}
+mailboxes = ~/Mail/disroot/INBOX ~/Mail/gmail/Inbox ~/Mail/bimsa/INBOX ~/Mail/runbox/INBOX ~/Mail/uni1/Inbox
+alternates = {{ .alias1Runbox }} {{ .emailDis }} {{ .emailGmail }} {{ .emailUni1 }} {{ .userBimsa }}
 unset record
 set spoolfile = ~/Mail/action
 
@@ -53,7 +53,7 @@ folder-hook bimsa/* source ${XDG_CONFIG_HOME}/mutt/accounts/bimsa
 folder-hook runbox/* source ${XDG_CONFIG_HOME}/mutt/accounts/runbox
 folder-hook disroot/* source ${XDG_CONFIG_HOME}/mutt/accounts/disroot
 folder-hook gmail/* source ${XDG_CONFIG_HOME}/mutt/accounts/gmail
-folder-hook rutgers/* source ${XDG_CONFIG_HOME}/mutt/accounts/rutgers
+folder-hook uni1/* source ${XDG_CONFIG_HOME}/mutt/accounts/uni1
 
 macro index <f4> "<change-folder>?<change-dir><kill-line>~/Mail/gmail<enter><exit><change-folder>~/Mail/gmail/Inbox<enter>" "go to gmail inbox"
 macro index <f5> "<change-folder>?<change-dir><kill-line>~/Mail/bimsa<enter><exit><change-folder>~/Mail/bimsa/INBOX<enter>" "go to bimsa inbox"

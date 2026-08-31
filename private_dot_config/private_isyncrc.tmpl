@@ -31,18 +31,6 @@ Path		~/Mail/disroot/
 Inbox		~/Mail/disroot/INBOX
 Flatten		.
 
-IMAPStore	rutgers-remote
-Host		outlook.office365.com
-User		{{ .emailUni1 }}
-AuthMechs	XOAUTH2
-PassCmd		"pizauth show microsoft"
-TLSType		IMAPS
-
-MaildirStore	rutgers-local
-Path		~/Mail/rutgers/
-Inbox		~/Mail/rutgers/Inbox
-Flatten		.
-
 IMAPStore	gmail-remote
 Host		imap.gmail.com
 User		{{ .emailGmail }}
@@ -53,6 +41,18 @@ TLSType		IMAPS
 MaildirStore	gmail-local
 Path		~/Mail/gmail/
 Inbox		~/Mail/gmail/Inbox
+Flatten		.
+
+IMAPStore	uni1-remote
+Host		imap.gmail.com
+User		{{ .emailUni1 }}
+AuthMechs	XOAUTH2
+PassCmd		"pizauth show uni1"
+TLSType		IMAPS
+
+MaildirStore	uni1-local
+Path		~/Mail/uni1/
+Inbox		~/Mail/uni1/Inbox
 Flatten		.
 
 Channel		runbox
@@ -79,20 +79,18 @@ SyncState	*
 Create		Both
 Expunge		Both
 
-Channel		rutgers
-Far		:rutgers-remote:
-Near		:rutgers-local:
-Patterns	* !Archive !Calendar !Calendar/Birthdays !Contacts
-Patterns	!"Conversation History" !"Deleted Items" !"Deleted Items/Sent"
-Patterns	!"Deleted Items/Trash" !Journal !Notes !Sent !Outbox !Tasks
-Patterns	!"Calendar/United States holidays" !Trash
-SyncState	* 
-Create		Both
-Expunge		Both
-
 Channel		gmail
 Far		:gmail-remote:
 Near		:gmail-local:
+Patterns	* !"[Gmail]/All Mail" !"[Gmail]/Important" !"[Gmail]/Starred"
+Patterns	!"[Gmail]/Bin"
+SyncState	*
+Create		Both
+Expunge		Both
+
+Channel		uni1
+Far		:uni1-remote:
+Near		:uni1-local:
 Patterns	* !"[Gmail]/All Mail" !"[Gmail]/Important" !"[Gmail]/Starred"
 Patterns	!"[Gmail]/Bin"
 SyncState	*

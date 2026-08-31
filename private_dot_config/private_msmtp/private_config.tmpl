@@ -20,20 +20,20 @@ user		{{ .userBimsa }}
 passwordeval	passage bimsa-email
 tls_starttls	off
 
-account		rutgers
-host		smtp.office365.com
-port		587
-auth		xoauth2
-from		{{ .emailUni1Short }}
-user		{{ .emailUni1 }}
-passwordeval	pizauth show microsoft
-
 account		gmail
 host		smtp.gmail.com
 port		587
 auth		oauthbearer
 from		{{ .emailGmail }}
 user		{{ .emailGmail }}
+passwordeval	pizauth show google
+
+account		uni1
+host		smtp.gmail.com
+port		587
+auth		oauthbearer
+from		{{ .emailUni1 }}
+user		{{ .emailUni1 }}
 passwordeval	pizauth show google
 
 account		runbox
