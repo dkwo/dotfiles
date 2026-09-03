@@ -27,6 +27,10 @@ literal = ["/run/user/{{ .chezmoi.uid }}"]
 name = "HOME"
 literal = ["{{ .chezmoi.homeDir }}"]
 
+[[variable]]
+name = "QUEUEDIR"
+literal = ["{{ .chezmoi.homeDir }}/Mail/msmtpqueue"]
+
 # User configuration files.
 [[path_beneath]]
 allowed_access = [
