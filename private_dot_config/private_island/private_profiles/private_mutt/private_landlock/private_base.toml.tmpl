@@ -1,0 +1,100 @@
+abi = 10
+
+[[ruleset]]
+handled_access_fs = ["abi.all"]
+handled_access_net = ["abi.all"]
+scoped = ["abi.all"]
+
+[[variable]]
+name = "XDG_CONFIG_HOME"
+literal = ["{{ .chezmoi.homeDir }}/.config"]
+
+[[variable]]
+name = "XDG_CACHE_HOME"
+literal = ["{{ .chezmoi.homeDir }}/.cache"]
+
+[[variable]]
+name = "XDG_DATA_HOME"
+literal = ["{{ .chezmoi.homeDir }}/.local/share"]
+
+[[variable]]
+name = "XDG_STATE_HOME"
+literal = ["{{ .chezmoi.homeDir }}/.local/state"]
+
+[[variable]]
+name = "HOME"
+literal = ["{{ .chezmoi.homeDir }}"]
+
+[[path_beneath]]
+allowed_access = ["abi.read_write"]
+parent = [
+    "/dev/full",
+    "/dev/null",
+    "/dev/random",
+    "/dev/urandom",
+    "/dev/zero",
+    "/dev/tty",
+]
+
+[[path_beneath]]
+allowed_access = [
+    "read_dir",
+    "read_file",
+    "refer",
+]
+parent = [
+    "/proc/self",
+    "/proc/cpuinfo",
+    "/usr/share",
+    "/etc/mutt",
+]
+
+[[path_beneath]]
+allowed_access = [
+    "read_dir",
+    "read_file",
+    "refer",
+]
+parent = [
+    "${XDG_CONFIG_HOME}/mutt",
+    "${XDG_DATA_HOME}/abook",
+    "${XDG_CONFIG_HOME}/vis",
+]
+
+[[path_beneath]]
+allowed_access = [
+    "abi.read_write",
+    "make_reg",
+    "remove_file",
+]
+parent = [
+    "${HOME}/Mail",
+    "${XDG_CACHE_HOME}/mutt",
+    "${XDG_STATE_HOME}/w3m",
+]
+
+[[path_beneath]]
+allowed_access = [
+    "abi.read_write",
+    "make_reg"
+]
+parent = [
+    "/tmp",
+    "/var/tmp",
+]
+
+[[path_beneath]]
+allowed_access = ["abi.read_execute"]
+parent = [
+    "/usr/lib",
+    "/opt/msmtp/msmtp-enqueue.sh",
+    "/usr/bin/mutt",
+    "/usr/bin/abook",
+    "/usr/bin/w3m",
+    "/usr/bin/sh",
+    "/usr/bin/cat",
+    "/usr/bin/echo",
+    "/usr/bin/mkdir",
+    "/usr/bin/date",
+    "/usr/bin/vis",
+] 
