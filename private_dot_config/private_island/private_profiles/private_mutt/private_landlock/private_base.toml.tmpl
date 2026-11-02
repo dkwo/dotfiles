@@ -49,6 +49,14 @@ parent = [
 ]
 
 [[path_beneath]]
+allowed_access = ["read_file"]
+parent = [
+    "/etc/nsswitch.conf",
+    "/etc/passwd",
+    "/etc/group",
+]
+
+[[path_beneath]]
 allowed_access = [
     "read_dir",
     "read_file",
@@ -92,9 +100,17 @@ parent = [
     "/usr/bin/abook",
     "/usr/bin/w3m",
     "/usr/bin/sh",
+    "/usr/bin/env",
     "/usr/bin/cat",
     "/usr/bin/echo",
     "/usr/bin/mkdir",
     "/usr/bin/date",
     "/usr/bin/vis",
+    "/usr/bin/fmt",
+    "/usr/bin/file",
+    "/usr/bin/zsh",
+    "/usr/bin/awk",
+    "/usr/bin/tr",
+    "/usr/bin/sort",
+    "/usr/bin/vis-menu",
 ] 
