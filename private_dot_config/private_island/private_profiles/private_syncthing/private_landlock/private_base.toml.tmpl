@@ -1,0 +1,49 @@
+abi = 10
+
+[[ruleset]]
+handled_access_fs = ["abi.all"]
+scoped = ["abi.all"]
+
+[[variable]]
+name = "HOME"
+literal = ["{{ .chezmoi.homeDir }}"]
+
+[[path_beneath]]
+allowed_access = ["abi.read_execute"]
+parent = [
+    "/usr/bin/syncthing",
+    "/usr/lib",
+]
+
+[[path_beneath]]
+allowed_access = ["abi.read_write", "refer"]
+parent = [
+    "/tmp",
+    "${HOME}/.local/state/syncthing",
+    "${HOME}/Documents",
+    "${HOME}/Books",
+]
+
+[[path_beneath]]
+allowed_access = ["abi.read_write"]
+parent = [
+    "/dev/full",
+    "/dev/null",
+    "/dev/random",
+    "/dev/urandom",
+    "/dev/zero",
+]
+
+[[path_beneath]]
+allowed_access = [
+    "read_dir",
+    "read_file",
+    "refer",
+]
+parent = [
+    "/proc",
+    "/usr/share",
+    "/etc/resolv.conf",
+    "/etc/hosts",
+    "/etc/ssl/certs", 
+]
