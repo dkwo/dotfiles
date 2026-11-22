@@ -1,4 +1,8 @@
-abi = 6
+abi = 10
+
+[[ruleset]]
+handled_access_fs = ["abi.all"]
+scoped = ["abi.all"]
 
 # Yubikey
 [[path_beneath]]
