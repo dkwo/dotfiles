@@ -47,6 +47,10 @@ parent = [
 ]
 
 [[variable]]
+name = "XDG_RUNTIME_DIR"
+literal = ["/run/user/{{ .chezmoi.uid }}"]
+
+[[variable]]
 name = "XDG_CONFIG_HOME"
 literal = ["{{ .chezmoi.homeDir }}/.config"]
 
@@ -56,21 +60,23 @@ literal = ["{{ .chezmoi.homeDir }}/.local/share"]
 
 # User configuration files.
 [[path_beneath]]
-allowed_access = [
-    "read_dir",
-    "read_file",
-]
+allowed_access = ["read_file"]
 parent = [
     "${XDG_CONFIG_HOME}/sfeed/sfeedrc",
+    "${XDG_DATA_HOME}/sfeed/list",
 ]
 
-# for sfeed
+# sfeed_update copies completed TSV files into this directory.
 [[path_beneath]]
-allowed_access = ["abi.read_write"]
-parent = [
-     "${XDG_DATA_HOME}/sfeed",
-     "/tmp",
-]
+allowed_access = ["read_dir", "read_file", "write_file", "make_reg", "truncate"]
+parent = ["${XDG_DATA_HOME}/sfeed/feeds"]
+
+[[path_beneath]]
+allowed_access = [
+    "read_dir", "read_file", "write_file", "truncate",
+    "make_dir", "make_reg", "remove_dir", "remove_file",
+ ]
+parent = ["${XDG_RUNTIME_DIR}/feeds-tmp"]
 
 # Safe writable devices.
 [[path_beneath]]
