@@ -1,0 +1,24 @@
+type = process
+
+depends-on = graphical.target
+prepared-by = way-secure-pre@$1
+
+command = /usr/bin/way-secure
+command += -S "$XDG_RUNTIME_DIR/way-secure/$1/wayland"
+command += -e org.example.touchgate
+command += -a "$1"
+command += -r 3
+
+ready-notification = pipefd:3
+
+failure-conditions = process-stops
+restart = on-failure
+restart-delay = 1
+restart-limit-interval = 60
+restart-limit-count = 3
+
+start-timeout = 15
+stop-timeout = 5
+
+log-type = buffer
+log-buffer-size = 65536 
